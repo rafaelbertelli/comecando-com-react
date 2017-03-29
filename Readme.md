@@ -46,5 +46,9 @@ ao invés de passar o webpack -w no cli, eu adicionei a propriedade watch com o 
 instalei o servidor do webpack
 npm install webpack-dev-server -g
 
-12 executo o servidor com o cli
+12 executo o servidor com o cli -> ele diz o endereço:porta -> http://localhost:8080
 webpack-dev-server
+
+
+
+
