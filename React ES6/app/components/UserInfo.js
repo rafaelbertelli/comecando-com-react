@@ -1,22 +1,22 @@
-var React = require('react');
-var UserRepos = require('./UserRepos');
-function UserInfo(props) {
+import React from 'react';
+import UserRepos from './UserRepos';
 
-    var userInfo = props.user ?
+const UserInfo = ({ user, repos }) => {
+    var userInfo = user ?
         (
-        <div className='row'>
-            <div className='col-sm-4'>
-                <img className='img-circle' src={props.user.avatar_url} alt="avatar" width='140' height='140' />
-                <h2>{props.user.login}</h2>
-                <p>{props.user.name}</p>
-                <p>Followers: {props.user.followers} / Following: {props.user.following}</p>
-                <p><a className='btn btn-default' href={props.user.html_url} target='_black' role='button'>Ver Detalhes</a></p>
+            <div className='row'>
+                <div className='col-sm-4'>
+                    <img className='img-circle' src={user.avatar_url} alt="avatar" width='140' height='140' />
+                    <h2>{user.login}</h2>
+                    <p>{user.name}</p>
+                    <p>Followers: {user.followers} / Following: {user.following}</p>
+                    <p><a className='btn btn-default' href={user.html_url} target='_black' role='button'>Ver Detalhes</a></p>
+                </div>
+                <div className='col-sm-8'>
+                    <UserRepos repos={repos} />
+                </div>
             </div>
-            <div className='col-sm-8'>
-                <UserRepos repos={props.repos} />
-            </div>
-        </div>
-    ) : null;
+        ) : null;
 
     return userInfo;
 }
@@ -26,4 +26,4 @@ UserInfo.propTypes = {
     repos: React.PropTypes.array
 }
 
-module.exports = UserInfo;
+export default UserInfo;
